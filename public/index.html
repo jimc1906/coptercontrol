@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Copter Control</title>
+</head>
+<body>
+<button id="takeoff">Take Off</button>
+<button id="land">Land</button>
+</body>
+</html>
+
+<script src="jquery-2.1.4.min.js"></script>
+<script>
+  $(function() {
+
+    $( "#takeoff" ).click(function() {
+      console.log( "Handler for takeoff .click() called." );
+      $.ajax({
+        url: '/takeoff',
+        dataType: 'text',
+        success: function(result) {
+          console.log('result is ' + result);
+        }
+      });
+    });
+
+    $( "#land" ).click(function() {
+      console.log( "Handler for land .click() called." );
+      $.ajax({
+        url: '/land',
+        dataType: 'text',
+        success: function(result) {
+          console.log('result is ' + result);
+        }
+      });
+    });
+  });
+</script>
